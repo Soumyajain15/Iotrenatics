@@ -83,6 +83,12 @@
       "description": "Placeholder for office location map",
       "imageUrl": "https://picsum.photos/seed/map/1200/500",
       "imageHint": "city map"
+    },
+    {
+      "id": "use-case-factory",
+      "description": "Image for smart factory use case",
+      "imageUrl": "https://picsum.photos/seed/factory/800/600",
+      "imageHint": "industrial factory"
     }
   ]
 }

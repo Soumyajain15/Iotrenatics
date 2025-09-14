@@ -1,31 +1,33 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { HeartRateWidget } from '@/components/data-widgets/heart-rate-widget';
 import { VisitorTrackerWidget } from '@/components/data-widgets/visitor-tracker-widget';
 import { SensorDataWidget } from '@/components/data-widgets/sensor-data-widget';
-import { Cpu, Server, Wifi } from 'lucide-react';
+import { Cpu, Factory, Server, Wifi } from 'lucide-react';
+import { PowerUsageWidget } from '@/components/data-widgets/power-usage-widget';
 
 const heroImage = PlaceHolderImages.find(p => p.id === 'hero-background')!;
 const clientLogos = PlaceHolderImages.filter(p => p.id.startsWith('client-logo'));
+const useCaseImage = PlaceHolderImages.find(p => p.id === 'use-case-factory')!;
 
 const solutions = [
   {
     icon: <Wifi className="h-8 w-8 text-accent" />,
     title: "IoT Platform",
-    description: "Seamlessly connect and manage your devices with our robust and scalable IoT cloud platform."
+    description: "Seamlessly connect and manage your devices with our robust and scalable IoT cloud platform. Built for enterprise-grade reliability."
   },
   {
     icon: <Server className="h-8 w-8 text-accent" />,
     title: "Data Analytics",
-    description: "Turn raw sensor data into actionable insights with powerful visualization and analytics tools."
+    description: "Turn raw sensor data into actionable insights with powerful visualization and analytics tools. Uncover trends and predict outcomes."
   },
   {
     icon: <Cpu className="h-8 w-8 text-accent" />,
     title: "Custom Hardware",
-    description: "Tailor-made sensor hardware designed and built for your specific industrial applications."
+    description: "Tailor-made sensor hardware designed and built for your specific industrial applications. From prototype to production."
   }
 ];
 
@@ -53,7 +55,7 @@ export default function Home() {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <Button asChild size="lg" className="font-semibold">
-                        <Link href="/solutions">Learn More</Link>
+                        <Link href="/solutions">Explore Solutions</Link>
                     </Button>
                     <Button asChild size="lg" variant="secondary" className="font-semibold">
                         <Link href="/about">Contact Us</Link>
@@ -65,19 +67,17 @@ export default function Home() {
         {/* Live Data Widgets */}
         <section className="py-12 md:py-20 bg-background/50">
           <div className="container px-4 md:px-6">
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div className="text-center mb-10">
+              <h2 className="text-3xl md:text-4xl font-bold font-headline">Your World, Live.</h2>
+              <p className="text-muted-foreground mt-2 max-w-2xl mx-auto">
+                Our platform processes millions of data points per second, providing you with instant visibility into your operations.
+              </p>
+            </div>
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
               <HeartRateWidget />
-              <div className="space-y-6">
-                <VisitorTrackerWidget />
-                <SensorDataWidget />
-              </div>
-              <Card className="md:col-span-2 lg:col-span-1 p-6 flex flex-col justify-center items-center text-center bg-card">
-                 <h3 className="text-2xl font-bold font-headline mb-2">Real-Time Insights</h3>
-                 <p className="text-muted-foreground">Our platform processes millions of data points per second, providing you with instant visibility into your operations.</p>
-                 <Button asChild className="mt-4">
-                   <Link href="/solutions">Explore Demos</Link>
-                 </Button>
-              </Card>
+              <VisitorTrackerWidget />
+              <SensorDataWidget />
+              <PowerUsageWidget />
             </div>
           </div>
         </section>
@@ -88,7 +88,7 @@ export default function Home() {
             <div className="text-center mb-10">
               <h2 className="text-3xl md:text-4xl font-bold font-headline">Our Core Solutions</h2>
               <p className="text-muted-foreground mt-2 max-w-2xl mx-auto">
-                We offer a complete suite of tools to bring your physical world online.
+                We offer a complete suite of tools to bring your physical world online. From device to dashboard, we've got you covered.
               </p>
             </div>
             <div className="grid gap-8 md:grid-cols-3">
@@ -108,8 +108,35 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Testimonials / Client Logos */}
+        {/* Featured Use Case Section */}
         <section className="py-12 md:py-20 bg-background/50">
+          <div className="container mx-auto px-4 md:px-6">
+            <div className="grid md:grid-cols-2 gap-8 lg:gap-16 items-center">
+              <div className="relative h-80 w-full rounded-lg overflow-hidden">
+                <Image
+                  src={useCaseImage.imageUrl}
+                  alt={useCaseImage.description}
+                  fill
+                  className="object-cover"
+                  data-ai-hint={useCaseImage.imageHint}
+                />
+              </div>
+              <div>
+                <div className="inline-block bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-semibold mb-3">Featured Use Case</div>
+                <h2 className="text-3xl font-bold font-headline mb-4">Smart Factory Optimization</h2>
+                <p className="text-muted-foreground mb-6">
+                  Learn how a leading manufacturer leveraged iotrenetics to reduce energy consumption by 15% and predict machinery maintenance needs with 99.5% accuracy, preventing costly downtime and improving production efficiency across their facilities.
+                </p>
+                <Button asChild>
+                  <Link href="/solutions">Read Case Study</Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Testimonials / Client Logos */}
+        <section className="py-12 md:py-20">
           <div className="container px-4 md:px-6">
             <h2 className="text-center text-2xl font-semibold tracking-tight text-muted-foreground mb-8">
               Trusted by innovative companies worldwide
