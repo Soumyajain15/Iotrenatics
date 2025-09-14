@@ -10,19 +10,28 @@ type DataPoint = {
   hr: number;
 };
 
-const initialData: DataPoint[] = Array.from({ length: 30 }, (_, i) => ({
+const generateInitialData = (): DataPoint[] => Array.from({ length: 30 }, (_, i) => ({
   time: Date.now() - (30 - i) * 1000,
   hr: 60 + Math.random() * 5,
 }));
 
+
 export function HeartRateWidget() {
-  const [data, setData] = useState<DataPoint[]>(initialData);
-  const [currentHeartRate, setCurrentHeartRate] = useState(data[data.length - 1].hr);
+  const [data, setData] = useState<DataPoint[]>([]);
+  const [currentHeartRate, setCurrentHeartRate] = useState<number | null>(null);
 
   useEffect(() => {
+    const initial = generateInitialData();
+    setData(initial);
+    setCurrentHeartRate(initial[initial.length - 1].hr);
+  }, []);
+
+  useEffect(() => {
+    if (data.length === 0) return;
+
     const interval = setInterval(() => {
       setData((prevData) => {
-        const lastHr = prevData[prevData.length - 1].hr;
+        const lastHr = prevData.length > 0 ? prevData[prevData.length - 1].hr : 65;
         const newHr = Math.max(55, Math.min(120, lastHr + (Math.random() - 0.5) * 4));
         const newDataPoint = { time: Date.now(), hr: newHr };
         
@@ -34,7 +43,7 @@ export function HeartRateWidget() {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [data.length]);
 
   return (
     <Card>
@@ -43,7 +52,7 @@ export function HeartRateWidget() {
         <HeartPulse className="h-4 w-4 text-muted-foreground" />
       </CardHeader>
       <CardContent>
-        <div className="text-2xl font-bold font-headline">{Math.round(currentHeartRate)} BPM</div>
+        <div className="text-2xl font-bold font-headline">{currentHeartRate !== null ? Math.round(currentHeartRate) : '-'} BPM</div>
         <p className="text-xs text-muted-foreground">Live data from sensor array</p>
         <div className="h-[120px] mt-4">
           <ResponsiveContainer width="100%" height="100%">
