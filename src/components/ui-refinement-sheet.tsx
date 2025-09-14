@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Bot, Loader2, Lightbulb, ShieldCheck, Architecture, Palette } from "lucide-react";
+import { Bot, Loader2, Lightbulb, ShieldCheck, Network, Palette } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -121,7 +121,7 @@ export function UIRefinementSheet() {
               <AccordionItem value="item-4">
                 <AccordionTrigger className="font-semibold text-base">
                     <div className="flex items-center gap-2">
-                        <Architecture className="h-5 w-5 text-accent" />
+                        <Network className="h-5 w-5 text-accent" />
                         Information Architecture
                     </div>
                 </AccordionTrigger>
