@@ -89,7 +89,7 @@ export default function AboutPage() {
                   <Mail className="h-6 w-6 text-accent mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-foreground">Email</h4>
-                    <p>contact@sensorsight.com</p>
+                    <p>contact@iotrenetics.com</p>
                   </div>
                 </div>
               </div>

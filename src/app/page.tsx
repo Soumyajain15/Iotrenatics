@@ -49,7 +49,7 @@ export default function Home() {
                     Connecting Your World, One Sensor at a Time
                 </h1>
                 <p className="max-w-[700px] mx-auto text-lg md:text-xl text-neutral-200 mb-8">
-                    SensorSight provides end-to-end solutions for real-time data monitoring and analytics, empowering industries to make smarter, data-driven decisions.
+                    iotrenetics provides end-to-end solutions for real-time data monitoring and analytics, empowering industries to make smarter, data-driven decisions.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <Button asChild size="lg" className="font-semibold">

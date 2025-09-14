@@ -22,7 +22,7 @@ export default function Header() {
         <div className="mr-4 flex items-center">
           <Link href="/" className="flex items-center gap-2 font-bold text-lg font-headline">
             <Activity className="h-6 w-6 text-accent" />
-            SensorSight
+            iotrenetics
           </Link>
         </div>
         <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
@@ -46,7 +46,7 @@ export default function Header() {
                 <div className="flex flex-col gap-4 p-4">
                   <Link href="/" className="flex items-center gap-2 font-bold text-lg font-headline" onClick={() => setIsMobileMenuOpen(false)}>
                      <Activity className="h-6 w-6 text-accent" />
-                    SensorSight
+                    iotrenetics
                   </Link>
                   <nav className="flex flex-col gap-4">
                     {navLinks.map((link) => (

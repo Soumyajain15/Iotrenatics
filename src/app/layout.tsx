@@ -6,7 +6,7 @@ import Footer from '@/components/layout/footer';
 import { cn } from '@/lib/utils';
 
 export const metadata: Metadata = {
-  title: 'SensorSight',
+  title: 'iotrenetics',
   description: 'Real-time data solutions for a connected world.',
 };
 

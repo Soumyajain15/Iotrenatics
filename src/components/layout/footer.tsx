@@ -9,13 +9,13 @@ export default function Footer() {
           <div className="flex flex-col items-center gap-2 text-center md:items-start md:text-left">
              <Link href="/" className="flex items-center gap-2 font-bold text-lg font-headline">
                 <Activity className="h-6 w-6 text-accent" />
-                SensorSight
+                iotrenetics
               </Link>
             <p className="text-sm text-muted-foreground">
               Real-time data solutions for a connected world.
             </p>
             <p className="text-xs text-muted-foreground/70">
-              © {new Date().getFullYear()} SensorSight Inc. All rights reserved.
+              © {new Date().getFullYear()} iotrenetics Inc. All rights reserved.
             </p>
           </div>
           <div className="grid grid-cols-2 gap-8 text-sm sm:grid-cols-3">
